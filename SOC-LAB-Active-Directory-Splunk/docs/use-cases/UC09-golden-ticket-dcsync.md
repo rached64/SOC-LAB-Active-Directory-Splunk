@@ -124,7 +124,6 @@ index="windows_server" source="WinEventLog:Security" (EventCode=4768 OR EventCod
 - Action: Add to Triggered Alerts.
 - Severity: Critical.
 
-Consider separate alerts for DCSync and RC4 anomalies so the alert title accurately describes the observed behavior.
 
 ## 12. Screenshot checklist
 
