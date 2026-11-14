@@ -138,6 +138,3 @@ Remove-ADUser -Identity "test.user" -Confirm:$false
 
  ![Triggered Alerts entry for AD - Privileged Group Additio`](../../screenshots/UC1.4.PNG)
   
-## 13. Validation status
-
-Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
