@@ -6,15 +6,6 @@ A practical SOC detection lab demonstrating 10 Active Directory and endpoint det
 
 ## Lab architecture
 
-```mermaid
-flowchart LR
-    K["Kali Linux\nAttack simulation\nImpacket / NetExec / smbclient"]
-    W["Windows Server 2022\nActive Directory: lab.local\nSecurity Events + Sysmon\nSplunk Universal Forwarder"]
-    S["Splunk Enterprise 10.4.3\nwindows_server / winlog_vm\nWindows Add-on + MLTK"]
-    K -->|"Controlled test activity"| W
-    W -->|"Forwarded events: TCP 9997"| S
-```
-
  ![architecture`](../../screenshots/architecture.PNG)
 
 
