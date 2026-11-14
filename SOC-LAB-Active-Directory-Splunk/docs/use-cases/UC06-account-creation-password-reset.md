@@ -117,6 +117,4 @@ Both use Add to Triggered Alerts.
 
 ## 9. Screenshot checklist
 
-### Splunk Result :
-
  ![Splunk transaction result](../../screenshots/UC6.PNG)
