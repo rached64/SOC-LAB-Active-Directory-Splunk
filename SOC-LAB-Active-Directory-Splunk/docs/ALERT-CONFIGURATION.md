@@ -36,9 +36,12 @@ UC05 alert values are proposed and must not be described as validated until the 
 11. Save the alert.
 12. Run a controlled test and confirm the alert appears in Triggered Alerts.
 
-[INSERT IMAGE HERE: Screenshot of Splunk's Save As Alert form showing a scheduled search, cron schedule, time range, and trigger condition.]
+### Screenshot of Splunk's Save As Alerts
+ ![Screenshot of Splunk's Save As Alerts](../../screenshots/Alerts.PNG)
 
-[INSERT IMAGE HERE: Screenshot of Triggered Alerts showing one sanitized test alert with its title, timestamp, and severity.]
+### Screenshot of Triggered Alerts
+
+ ![Screenshot of Triggered Alerts](../../screenshots/triiger-alerts.PNG)
 
 ## Alert hygiene
 
