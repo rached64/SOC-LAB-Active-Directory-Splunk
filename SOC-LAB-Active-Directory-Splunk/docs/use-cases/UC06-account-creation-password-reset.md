@@ -105,21 +105,8 @@ index="windows_server" source="WinEventLog:Security"
 ```
 ```
 
-## 8. Expected results
 
-Expected source-lab observation for account creation:
-- Actor: `shadowadmin.temp`.
-- New account: `suspect3.user`.
-- Event ID: 4720.
-
-Expected reset correlation:
-- Event 4724 for the target account.
-- Event 4624 for the same target account within 30 minutes.
-- One transaction result.
-
-The reset correlation should be checked against the raw event fields to ensure both events refer to the target account, not the actor.
-
-## 9. Scheduled alert
+## 8. Scheduled alert
 
 Alert A — Unusual account creation:
 - Scheduled; cron `*/10 * * * *`; Last 10 minutes; results > 0; Medium.
@@ -129,31 +116,11 @@ Alert B — Password reset followed by logon:
 
 Both use Add to Triggered Alerts.
 
-## 10. Limitations and false positives
 
-- Replace the hard-coded actor regex with a regularly maintained lookup of approved account administrators.
-- Helpdesk password resets are common. The sequence and identity of the target account provide context.
-- Confirm `Account_Name` multivalue ordering in your own events.
-- A creation followed later by privileged-group addition is a useful correlation opportunity with UC01.
+## 9. Screenshot checklist
 
-## 11. Cleanup
-
-Disable and remove disposable users after evidence collection. Do not delete any account that is not explicitly a lab test identity.
-
-```powershell
-Disable-ADAccount -Identity "ghost.user"
-Remove-ADUser -Identity "ghost.user" -Confirm:$false
-```
-
-## 12. Screenshot checklist
-
-- [INSERT IMAGE HERE: PowerShell showing creation of `ghost.user` and `suspect3.user`; hide password values.]
-- [INSERT IMAGE HERE: Event Viewer Event 4720 with actor and target details.]
-- [INSERT IMAGE HERE: Event Viewer Event 4724 and subsequent 4624.]
-- [INSERT IMAGE HERE: Splunk account-creation detection result showing actor and new account.]
 - [INSERT IMAGE HERE: Splunk transaction result showing reset-to-login duration.]
-- [INSERT IMAGE HERE: Triggered Alerts showing the relevant alert and severity.]
 
-## 13. Validation status
+### Splunk Result :
 
-Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
+ ![Splunk transaction result](../../screenshots/UC6.PNG)
