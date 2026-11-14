@@ -128,15 +128,15 @@ Remove-ADUser -Identity "test.user" -Confirm:$false
   
 ### Event 4728 – Event Viewer Security event 4728
 
-- ![Event 4728 - Security event 4728](../../screenshots/UC1.2.png)
+- ![Event 4728 - Security event 4728](../../screenshots/UC1.2.PNG)
   
 ### Splunk search showing the matching event
 
-- ![Splunk search showing the matching event](../../screenshots/UC1.3.png)
+- ![Splunk search showing the matching event](../../screenshots/UC1.3.PNG)
 
 ### Triggered Alerts entry for AD - Privileged Group Additio
 
-- ![Triggered Alerts entry for AD - Privileged Group Additio`](../../screenshots/UC1.4.png)
+- ![Triggered Alerts entry for AD - Privileged Group Additio`](../../screenshots/UC1.4.PNG)
   
 ## 13. Validation status
 
