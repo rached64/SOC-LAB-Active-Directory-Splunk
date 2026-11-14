@@ -117,8 +117,6 @@ Both use Add to Triggered Alerts.
 
 ## 9. Screenshot checklist
 
-- [INSERT IMAGE HERE: Splunk transaction result showing reset-to-login duration.]
-
 ### Splunk Result :
 
  ![Splunk transaction result](../../screenshots/UC6.PNG)
