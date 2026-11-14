@@ -112,10 +112,8 @@ No account state changes are required. Remove any temporary password-list file f
 
 ## 12. Screenshot checklist
 
-- [INSERT IMAGE HERE: Kali terminal showing eight failed SMB logons followed by a successful test logon; redact the password.]
-- [INSERT IMAGE HERE: Event Viewer showing representative 4625 and 4624 records.]
-- [INSERT IMAGE HERE: Splunk table showing `test.user`, the source, eight failures, and one success.]
-- [INSERT IMAGE HERE: Triggered alert showing High severity.]
+### Splunk table showing `test.user`, the source, eight failures, and one succes 
+ ![Splunk table showing `test.user`, the source, eight failures, and one succes ](../../screenshots/UC3.PNG)
 
 ## 13. Validation status
 
