@@ -1,4 +1,4 @@
-# UC07 — Honeytoken Interaction (`svc.backup_prod`)
+# UC07 — Honeytoken Interaction :
 
 | Attribute | Value |
 |---|---|
@@ -82,16 +82,7 @@ index="windows_server" source="WinEventLog:Security"
 | table _time event_type Account_Name Source_Network_Address host
 ```
 
-## 8. Expected results
-
-Expected source-lab result:
-- Honeytoken: `svc.backup_prod`.
-- Event type: failed logon.
-- Event ID: 4625.
-- Source: Kali test host.
-- One event is enough to trigger the detection.
-
-## 9. Scheduled alert
+## 8. Scheduled alert
 
 - Name: `AD - Honeytoken svc.backup_prod Touched`.
 - Scheduled; cron `*/5 * * * *`.
@@ -100,33 +91,10 @@ Expected source-lab result:
 - Action: Add to Triggered Alerts.
 - Severity: Critical.
 
-## 10. Limitations and false positives
+## 9. Screenshot checklist
 
-- A honeytoken is effective only if legitimate processes never use it.
-- Protect the decoy account and the list of decoys from broad disclosure.
-- The honeytoken is a detection tripwire, not a direct detector for every advanced technique. It may detect subsequent account discovery or authentication after compromise.
-- Verify that no scheduled task, scanner, or administrator is legitimately testing the account.
+### Splunk result
 
-## 11. Cleanup
+ ![Splunk result](../../screenshots/UC7.PNG)
+  
 
-Remove the optional SPN and disable the decoy only if the lab test is being retired:
-
-```powershell
-setspn -D HTTP/backup-prod.lab.local svc.backup_prod
-Disable-ADAccount -Identity "svc.backup_prod"
-```
-
-For a continuing lab, retain the decoy but rotate its random secret securely. Do not publish its password.
-
-## 12. Screenshot checklist
-
-- [INSERT IMAGE HERE: AD Users and Computers or PowerShell showing the honeytoken account and decoy description; do not reveal its password.]
-- [INSERT IMAGE HERE: `setspn -L svc.backup_prod` showing the optional SPN.]
-- [INSERT IMAGE HERE: Kali terminal showing the controlled failed authentication; hide the password.]
-- [INSERT IMAGE HERE: Event Viewer Event 4625 showing `svc.backup_prod`.]
-- [INSERT IMAGE HERE: Splunk result showing the honeytoken event and source.]
-- [INSERT IMAGE HERE: Critical triggered alert.]
-
-## 13. Validation status
-
-Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
