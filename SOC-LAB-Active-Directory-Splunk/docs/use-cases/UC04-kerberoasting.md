@@ -119,12 +119,6 @@ Remove-ADUser -Identity svc.sql -Confirm:$false
 
 ## 12. Screenshot checklist
 
-- [INSERT IMAGE HERE: Active Directory PowerShell showing the `svc.sql` test account and its SPN.]
-- [INSERT IMAGE HERE: Kali terminal showing the Impacket GetUserSPNs request; do not publish extracted ticket hashes.]
-- [INSERT IMAGE HERE: Event Viewer event 4769 showing service name and encryption type.]
-- [INSERT IMAGE HERE: Splunk detection results showing requester, service, and `0x17`.]
-- [INSERT IMAGE HERE: Triggered alert showing High severity.]
+### Splunk detection results :
+ ![Splunk detection results showing requester, service, and `0x17`](../../screenshots/UC4.PNG)
 
-## 13. Validation status
-
-Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
