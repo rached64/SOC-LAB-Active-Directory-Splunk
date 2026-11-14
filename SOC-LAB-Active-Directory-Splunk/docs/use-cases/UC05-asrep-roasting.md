@@ -126,4 +126,4 @@ After validation:
 
 ### Splunk candidate detection results
 
- ![Splunk  detection results](../../screenshots/UC4.PNG)
+ ![Splunk  detection results](../../screenshots/UC5.PNG)
