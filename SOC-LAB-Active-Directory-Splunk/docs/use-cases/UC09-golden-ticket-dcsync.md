@@ -18,7 +18,6 @@ A Golden Ticket is a forged Kerberos TGT created using the `krbtgt` account secr
 
 This project uses two detection approaches:
 
-1. **DCSync-related Event 4662:** search for the replication-rights GUIDs in the event's `Properties` field.
 2. **RC4 Event 4769 anomaly:** identify RC4 service-ticket encryption (`0x17`) where RC4 is unexpected.
 
 The source lab observed that a simple “4769 without a matching 4768” approach was unreliable on Windows Server 2019/2022 because PAC revalidation can generate a 4768 event for a forged ticket.
@@ -103,50 +102,19 @@ Get-WinEvent -FilterHashtable @{
 
 Inspect Event 4662's `Properties` and confirm that the relevant replication-rights GUIDs are present.
 
-## 7. Splunk detection queries
 
-### A. DCSync-related Event 4662
-
-```spl
-index="windows_server" source="WinEventLog:Security" EventCode=4662
-| eval account=lower(mvindex(Account_Name,-1))
-| where Properties="{1131f6ad-9c07-11d1-f79f-00c04fc2dcd2}"
-    OR Properties="{1131f6aa-9c07-11d1-f79f-00c04fc2dcd2}"
-| where NOT match(account,".*\\$")
-| table _time account Source_Network_Address host Properties
-```
-
-### B. RC4 Event 4769 anomaly
+### B. SPL
 
 ```spl
-index="windows_server" source="WinEventLog:Security" EventCode=4769
-| eval account=lower(mvindex(Account_Name,-1))
-| where Ticket_Encryption_Type="0x17"
-| where NOT match(account,".*\\$")
-| stats count
-        min(_time) as first_seen
-        values(Service_Name) as services
-        by account Source_Network_Address
-| convert ctime(first_seen)
-| table first_seen account Source_Network_Address services count
+index="windows_server" source="WinEventLog:Security" (EventCode=4768 OR EventCode=4769)
+| eval compte=lower(mvindex(Account_Name, -1))
+| where compte="administrator"
+| eval type=if(EventCode=4768,"TGT (4768)","Ticket service (4769)")
+| table _time type compte Ticket_Encryption_Type Source_Network_Address host
+| sort _time
 ```
 
-## 8. Expected results and interpretation
-
-Expected DCSync detection:
-- Event ID: 4662.
-- Account: dedicated privileged lab account.
-- `Properties`: contains a monitored replication-rights GUID.
-- Splunk returns the account, source address, host, and event time.
-
-Expected Kerberos investigation:
-- Events 4768 and/or 4769 may be observed during ticket use.
-- RC4 is represented as `0x17` in the source lab.
-- The source lab observed a 4768 AES event and no corresponding RC4 4769 from Kali in one Windows Server 2019/2022 test.
-
-Do not claim that a Golden Ticket always produces a detectable RC4 4769 or that missing 4768 is a reliable universal signature.
-
-## 9. Scheduled alert
+# 9. Scheduled alert
 
 - Name: `AD - Golden Ticket (DCSync / RC4 Anomaly)`.
 - Type: Scheduled.
@@ -158,28 +126,7 @@ Do not claim that a Golden Ticket always produces a detectable RC4 4769 or that 
 
 Consider separate alerts for DCSync and RC4 anomalies so the alert title accurately describes the observed behavior.
 
-## 10. Limitations and false positives
-
-- Event 4662 depends on correct SACL configuration.
-- Replication rights may be used by legitimate domain controllers and approved identity infrastructure. Maintain an allowlist of expected principals and hosts.
-- RC4 may be present for legacy compatibility.
-- PAC revalidation on modern Windows versions can undermine simplistic Golden Ticket correlation.
-- A successful DCSync detection indicates suspicious replication-rights use; investigate whether the actor and source are authorized.
-- `krbtgt` secret material is extremely sensitive. Do not expose it in public documentation.
-
-## 11. Cleanup and recovery
-
-- Remove any disposable privileged test identity and its group membership.
-- Securely delete any temporary credential dumps, ticket caches, and copied secret material.
-- Do not rotate the real domain's `krbtgt` password as a casual lab cleanup step. If a real environment's `krbtgt` secret is exposed, follow the organization's incident-response procedure for the required two-stage password reset and replication validation.
-
 ## 12. Screenshot checklist
 
-- [INSERT IMAGE HERE: Windows audit policy showing Kerberos and Directory Service Access auditing enabled.]
-- [INSERT IMAGE HERE: SACL configuration on the lab domain naming context showing the audited replication permissions.]
-- [INSERT IMAGE HERE: Kali DCSync command with all returned hashes and keys completely redacted.]
-- [INSERT IMAGE HERE: Sanitized Event Viewer Event 4662 showing the account and replication-rights Properties.]
-- [INSERT IMAGE HERE: Splunk DCSync detection results showing account, source, and timestamp.]
-- [INSERT IMAGE HERE: Sanitized Kerberos ticket metadata showing lifetime and encryption type, with all secrets and ticket contents hidden.]
-- [INSERT IMAGE HERE: Splunk RC4 anomaly search results, if the test produces them.]
-- [INSERT IMAGE HERE: Critical triggered alert with the detection type clearly identified.]
+### Splunk  detection results
+ ![Splunk  detection results](../../screenshots/UC9.PNG)
