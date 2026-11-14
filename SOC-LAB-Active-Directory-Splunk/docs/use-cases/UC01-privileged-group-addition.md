@@ -127,10 +127,14 @@ Remove-ADUser -Identity "test.user" -Confirm:$false
 - ![PowerShell showing creation of `test.user` and addition to `Domain Admins`](../../screenshots/UC1.1.PNG)
 ### Event 4728 – Event Viewer Security event 4728
 
-- !- ![Event Viewer Security event 4728](../../screenshots/UC1.1.PNG)(../../screenshots/UC1.2.PNG)
-- [INSERT IMAGE HERE: Splunk search showing the matching event, `Group_Name`, `author`, and `added_member`.]
-- [INSERT IMAGE HERE: Triggered Alerts entry for `AD - Privileged Group Addition`, severity High.]
+- ![Event 4728 - Security event 4728](../../screenshots/UC1.2.png)
+- 
+### Splunk search showing the matching event
+- ![Splunk search showing the matching event](../../screenshots/UC1.3.png)
 
+### Triggered Alerts entry for AD - Privileged Group Additio`
+- ![Triggered Alerts entry for AD - Privileged Group Additio`](../../screenshots/UC1.4.png)
+  
 ## 13. Validation status
 
 Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
