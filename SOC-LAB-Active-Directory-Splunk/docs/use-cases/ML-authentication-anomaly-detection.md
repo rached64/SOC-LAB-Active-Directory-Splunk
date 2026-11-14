@@ -114,19 +114,14 @@ Do not use real user accounts or credentials. Stop the script with Ctrl+C when e
 
 The source alert was created but was to be reactivated after re-training.
 
-## 10. Limitations
 
-- A small number of points does not represent normal behavior.
-- Attack simulations included in the training period can distort the distribution.
-- One host provides limited context.
-- Consider modeling per user, per host, or across multiple authentication features only after enough representative data exists.
-- Compare ML results with fixed-threshold detections before changing operational alerting.
+## 10. Screenshot checklist
 
-## 11. Screenshot checklist
+### search showing  `est_anomalie`
 
-- [INSERT IMAGE HERE: Splunk MLTK app showing the DensityFunction model training search.]
-- [INSERT IMAGE HERE: Model training search completing successfully and saving `modele_echecs_dc`.]
-- [INSERT IMAGE HERE: Apply search showing `IsOutlier(echecs)` or `est_anomalie`.]
-- [INSERT IMAGE HERE: Table or visualization highlighting the 15,659 failure anomaly.]
-- [INSERT IMAGE HERE: Baseline collection script running in Kali with credentials hidden.]
-- [INSERT IMAGE HERE: Scheduled ML alert configuration, clearly marked inactive until the baseline is re-trained.]
+ ![search showing est_anomalie`](../../screenshots/MTLK.PNG)
+
+### search showing  `IsOutlier(echecs)`
+ 
+ ![IsOutlier(echecs)](../../screenshots/MTLK2.PNG)
+  
