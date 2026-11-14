@@ -103,31 +103,10 @@ Expected source-lab observation:
 - Action: Add to Triggered Alerts.
 - Severity: Critical.
 
-## 10. Limitations and false positives
 
-- NTLM alone is not proof of Pass-the-Hash. Legacy applications, service accounts, and older systems may use NTLM legitimately.
-- The lab's prefix regex is a simplification. Replace it with a lookup built from actual privileged group membership.
-- Consider Logon Type 9 as supplementary telemetry where relevant.
-- Combine with honeytoken monitoring for stronger context.
-- Review NTLM restriction policies as a preventive control.
+## 10. Screenshot checklist
 
-## 11. Cleanup
+### Splunk result:
 
-```powershell
-Remove-ADGroupMember -Identity "Domain Admins" -Members "adm.pth_test" -Confirm:$false
-Disable-ADAccount -Identity "adm.pth_test"
-Remove-ADUser -Identity "adm.pth_test" -Confirm:$false
-```
+ ![Splunk result](../../screenshots/UC8.PNG)
 
-## 12. Screenshot checklist
-
-- [INSERT IMAGE HERE: AD PowerShell showing the disposable privileged test account; no secrets visible.]
-- [INSERT IMAGE HERE: Kali terminal showing the hash calculation with the actual hash redacted.]
-- [INSERT IMAGE HERE: Kali terminal showing the Impacket PtH test with hash masked.]
-- [INSERT IMAGE HERE: Event Viewer Event 4624 showing NTLM and Logon Type 3.]
-- [INSERT IMAGE HERE: Splunk result showing privileged test account, NTLM, source, and host.]
-- [INSERT IMAGE HERE: Critical triggered alert.]
-
-## 13. Validation status
-
-Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
