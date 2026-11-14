@@ -122,10 +122,12 @@ Remove-ADUser -Identity "test.user" -Confirm:$false
 
 ## 12. Screenshot checklist
 
-### Event 4728 – Privileged Group Addition
+### Event 4728 – PowerShell showing creation of test.user_LAB and addition to Domain Admins
 
 - ![PowerShell showing creation of `test.user` and addition to `Domain Admins`](../../screenshots/UC1.1.PNG)
-- [INSERT IMAGE HERE: Event Viewer Security event 4728 with actor, group, member, and timestamp visible.]
+### Event 4728 – Event Viewer Security event 4728
+
+- !(../../screenshots/UC1.2.PNG)
 - [INSERT IMAGE HERE: Splunk search showing the matching event, `Group_Name`, `author`, and `added_member`.]
 - [INSERT IMAGE HERE: Triggered Alerts entry for `AD - Privileged Group Addition`, severity High.]
 
