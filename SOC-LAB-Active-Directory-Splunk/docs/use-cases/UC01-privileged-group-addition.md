@@ -124,19 +124,19 @@ Remove-ADUser -Identity "test.user" -Confirm:$false
 
 ### Event 4728 – PowerShell showing creation of test.user_LAB and addition to Domain Admins
 
-- ![PowerShell showing creation of `test.user` and addition to `Domain Admins`](../../screenshots/UC1.1.PNG)
+ ![PowerShell showing creation of `test.user` and addition to `Domain Admins`](../../screenshots/UC1.1.PNG)
   
 ### Event 4728 – Event Viewer Security event 4728
 
-- ![Event 4728 - Security event 4728](../../screenshots/UC1.2.PNG)
+ ![Event 4728 - Security event 4728](../../screenshots/UC1.2.PNG)
   
 ### Splunk search showing the matching event
 
-- ![Splunk search showing the matching event](../../screenshots/UC1.3.PNG)
+ ![Splunk search showing the matching event](../../screenshots/UC1.3.PNG)
 
 ### Triggered Alerts entry for AD - Privileged Group Additio
 
-- ![Triggered Alerts entry for AD - Privileged Group Additio`](../../screenshots/UC1.4.PNG)
+ ![Triggered Alerts entry for AD - Privileged Group Additio`](../../screenshots/UC1.4.PNG)
   
 ## 13. Validation status
 
