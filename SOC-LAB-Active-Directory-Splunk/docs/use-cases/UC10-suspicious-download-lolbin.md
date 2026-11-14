@@ -76,6 +76,19 @@ index="winlog_vm" source="*Sysmon*" EventCode=11
 | where isnull(whitelisted)
 | table _time host Image TargetFilename
 ```
+## 8. Dashboard : SOC - Suspicious Download
+
+This dashboard provides a centralized overview of suspicious download activities and related detection events.
+
+Dashboard Panels
+
+| Panel | Description | Purpose |
+|---|---|---|
+| Detection Count | Total number of detections | Monitor suspicious download activity |
+| Activity Volume Over Time | Detection volume during the selected time period | Identify activity spikes |
+| Top Processes | Programs responsible for creating or dropping scripts and executables | Identify suspicious processes |
+| Top PowerShell Domains | Domains contacted by PowerShell (EventCode 22) | Identify potentially suspicious external connections |
+| Latest Detections | Most recent suspicious download events | Review events requiring investigation |
 
 ## 8. Expected results
 
@@ -99,7 +112,14 @@ Expected:
 
 ## 10. Screenshot checklist
 
-### Splunk detection results
+### Splunk detection results :
 
  ![Splunk detection results](../../screenshots/UC10.PNG)
+
+ ### Dashboard Screenshot :
+ ![Splunk detection results](../../screenshots/UC10.1.PNG)
+
+ ### Dashboard : Top domaines PowerShell
+ ![Splunk detection results](../../screenshots/UC10.2.PNG)
+
  
