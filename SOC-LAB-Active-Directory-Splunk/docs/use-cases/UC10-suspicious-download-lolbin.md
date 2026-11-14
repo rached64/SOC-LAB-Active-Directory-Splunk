@@ -80,8 +80,6 @@ index="winlog_vm" source="*Sysmon*" EventCode=11
 
 This dashboard provides a centralized overview of suspicious download activities and related detection events.
 
-Dashboard Panels
-
 | Panel | Description | Purpose |
 |---|---|---|
 | Detection Count | Total number of detections | Monitor suspicious download activity |
@@ -90,7 +88,7 @@ Dashboard Panels
 | Top PowerShell Domains | Domains contacted by PowerShell (EventCode 22) | Identify potentially suspicious external connections |
 | Latest Detections | Most recent suspicious download events | Review events requiring investigation |
 
-## 8. Expected results
+## 9. Expected results
 
 Expected:
 - Sysmon Event 11.
@@ -99,7 +97,7 @@ Expected:
 - The file is not present in the approved whitelist.
 - The source lab uses a 15-minute search window and a 5-minute schedule.
 
-## 9. Scheduled alert
+## 10. Scheduled alert
 
 - Name: `SOC - Suspicious Download via LOLBin`.
 - Type: Scheduled.
@@ -110,7 +108,7 @@ Expected:
 - Action: Add to Triggered Alerts.
 - Severity: Medium; raise if execution or malicious content is confirmed.
 
-## 10. Screenshot checklist
+## 11. Screenshot checklist
 
 ### Splunk detection results :
 
