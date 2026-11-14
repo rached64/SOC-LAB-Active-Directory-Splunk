@@ -11,7 +11,7 @@
 | Microsoft Windows Add-on | Windows event field extractions | Validate extracted field names |
 | Splunk MLTK | Statistical anomaly detection | DensityFunction |
 
- ![architecture](../../screenshots/architecture.png)
+ ![](../../screenshots/architecture.png)
  
 ## Event flow
 
