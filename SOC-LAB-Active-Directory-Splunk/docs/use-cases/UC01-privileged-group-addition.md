@@ -127,7 +127,7 @@ Remove-ADUser -Identity "test.user" -Confirm:$false
 - ![PowerShell showing creation of `test.user` and addition to `Domain Admins`](../../screenshots/UC1.1.PNG)
 ### Event 4728 – Event Viewer Security event 4728
 
-- !(../../screenshots/UC1.2.PNG)
+- !- ![Event Viewer Security event 4728](../../screenshots/UC1.1.PNG)(../../screenshots/UC1.2.PNG)
 - [INSERT IMAGE HERE: Splunk search showing the matching event, `Group_Name`, `author`, and `added_member`.]
 - [INSERT IMAGE HERE: Triggered Alerts entry for `AD - Privileged Group Addition`, severity High.]
 
