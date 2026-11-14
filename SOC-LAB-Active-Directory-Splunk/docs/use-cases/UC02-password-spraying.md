@@ -117,11 +117,15 @@ Delete `/tmp/wrong.txt` from Kali after the test. No AD account changes are requ
 
 ## 12. Screenshot checklist
 
-- [INSERT IMAGE HERE: Kali terminal showing the NetExec test against a lab DC and test accounts; hide passwords.]
-- [INSERT IMAGE HERE: Event Viewer Security event 4625 with source address and target account visible.]
-- [INSERT IMAGE HERE: Splunk result showing one source, failure count, distinct account count, and account list.]
-- [INSERT IMAGE HERE: Triggered Alerts entry for Password Spraying, severity Medium.]
+### Kali terminal showing the NetExec test against a lab DC and test accounts
+ ![Kali terminal showing the NetExec test against a lab DC and test accounts](../../screenshots/UC2.1.PNG)
 
-## 13. Validation status
+### Event Viewer Security event 4625 with source address and target account visible
+ ![Event Viewer Security event 4625 with source address and target account visible](../../screenshots/UC2.2.PNG)
 
-Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
+ ### Splunk result
+ ![Splunk result](../../screenshots/UC2.3.PNG)
+
+ ### Triggered Alerts entry for Password Spraying
+ ![Triggered Alerts entry for Password Spraying](../../screenshots/UC2.4.PNG)
+
