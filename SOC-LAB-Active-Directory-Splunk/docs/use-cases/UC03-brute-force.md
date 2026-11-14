@@ -114,7 +114,3 @@ No account state changes are required. Remove any temporary password-list file f
 
 ### Splunk table showing `test.user`, the source, eight failures, and one succes 
  ![Splunk table showing `test.user`, the source, eight failures, and one succes ](../../screenshots/UC3.PNG)
-
-## 13. Validation status
-
-Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
