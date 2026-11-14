@@ -102,6 +102,7 @@ index="windows_server" source="WinEventLog:Security"
     maxspan=30m
 | where eventcount=2
 | table _time account duration host
+```
 
 ## 8. Scheduled alert
 
