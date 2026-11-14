@@ -37,11 +37,11 @@ UC05 alert values are proposed and must not be described as validated until the 
 12. Run a controlled test and confirm the alert appears in Triggered Alerts.
 
 ### Screenshot of Splunk's Save As Alerts
- ![Screenshot of Splunk's Save As Alerts](/../screenshots/Alerts.PNG)
+ ![Screenshot of Splunk's Save As Alerts](../screenshots/Alerts.PNG)
 
 ### Screenshot of Triggered Alerts
 
- ![Screenshot of Triggered Alerts](/../screenshots/triiger-alerts.PNG)
+ ![Screenshot of Triggered Alerts](../screenshots/triiger-alerts.PNG)
 
 ## Alert hygiene
 
