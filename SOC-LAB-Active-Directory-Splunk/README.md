@@ -15,7 +15,8 @@ flowchart LR
     W -->|"Forwarded events: TCP 9997"| S
 ```
 
-[INSERT IMAGE HERE: The project architecture diagram showing Kali Linux, Windows Server 2022, Splunk Enterprise, log collection on TCP 9997, the 10 detection use cases, MLTK, scheduled alerts, documentation, and the planned Risk-Based Alerting enhancement.]
+ ![architecture`](../../screenshots/architecture.PNG)
+
 
 ## Detection catalogue
 
@@ -101,7 +102,3 @@ See [Lab Setup](docs/LAB-SETUP.md), [Architecture](docs/ARCHITECTURE.md), and [A
 - Use-case documentation and validation evidence.
 - MLTK anomaly model workflow.
 - Risk-Based Alerting is a planned enhancement, not an implemented project output.
-
-## License and disclaimer
-
-Use an appropriate open-source license after reviewing the rights to all included content and screenshots. This repository is educational and is not a production-ready security monitoring package.
