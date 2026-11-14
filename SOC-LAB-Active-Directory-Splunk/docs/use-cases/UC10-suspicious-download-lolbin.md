@@ -97,30 +97,9 @@ Expected:
 - Action: Add to Triggered Alerts.
 - Severity: Medium; raise if execution or malicious content is confirmed.
 
-## 10. Limitations and false positives
+## 10. Screenshot checklist
 
-- Event 11 indicates file creation, not proof that the file came from the Internet. The process and related network/DNS telemetry add context.
-- Correlate Sysmon Event 1 (process creation), Event 3 (network connection), and Event 22 (DNS query) using `ProcessGuid` where available.
-- The file extension can be misleading; do not execute a test file to prove detection.
-- Keep the whitelist narrow, reviewed, and documented.
-- This use case detects transfer/file creation behavior; it does not by itself detect later execution.
+### Splunk detection results
 
-## 11. Cleanup
-
-Remove the harmless test file:
-
-```powershell
-Remove-Item "$env:TEMP\test_suspicious.ps1" -Force -ErrorAction SilentlyContinue
-```
-
-## 12. Screenshot checklist
-
-- [INSERT IMAGE HERE: PowerShell showing the harmless download test command and destination path.]
-- [INSERT IMAGE HERE: Event Viewer Sysmon Event 11 showing `Image` and `TargetFilename`.]
-- [INSERT IMAGE HERE: Splunk detection results showing host, process image, and target filename.]
-- [INSERT IMAGE HERE: Splunk investigation timeline showing related Sysmon Events 1, 3, 11, and 22.]
-- [INSERT IMAGE HERE: Triggered alert showing the LOLBin detection, host, and Medium severity.]
-
-## 13. Validation status
-
-Record the actual test date, Windows version, Splunk version, source host, observed Event IDs, number of returned results, and alert status. Do not mark a scenario validated until the complete event-to-alert chain has been demonstrated.
+ ![Splunk detection results](../../screenshots/UC10.PNG)
+ 
