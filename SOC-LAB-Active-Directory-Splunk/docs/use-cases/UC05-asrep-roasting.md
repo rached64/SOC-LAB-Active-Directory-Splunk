@@ -111,7 +111,7 @@ Expected behavior to validate:
 
 This is an expected test plan, not a recorded result from the available project evidence.
 
-## 9. Proposed scheduled alert
+## 9. scheduled alert
 
 After validation:
 - Name: `AD - AS-REP Roasting`.
@@ -120,32 +120,10 @@ After validation:
 - Proposed time range: Last 15 minutes.
 - Trigger: Number of results > 0.
 - Action: Add to Triggered Alerts.
-- Proposed severity: High.
-
-## 10. Limitations and false positives
-
-- A no-preauthentication account is a configuration weakness; the event is not by itself proof that a hash was cracked.
-- Confirm account identity, source, event fields, and whether the account is expected to have pre-authentication disabled.
-- Validate field extraction on the exact Windows and add-on versions.
-- Treat the use case as pending until a complete simulation-to-event-to-Splunk test has been captured.
-
-## 11. Cleanup
-
-Immediately restore the test account's normal setting:
-
-```powershell
-Set-ADAccountControl -Identity "asrep.test" -DoesNotRequirePreAuth $false
-Get-ADUser asrep.test -Properties DoesNotRequirePreAuth |
-  Select-Object SamAccountName, DoesNotRequirePreAuth
-```
-
-Then disable or remove the disposable account when no longer needed.
+- Severity: High.
 
 ## 12. Screenshot checklist
 
-- [INSERT IMAGE HERE: PowerShell output showing `asrep.test` and `DoesNotRequirePreAuth=True` before the test.]
-- [INSERT IMAGE HERE: Kali terminal showing the GetNPUsers command; redact any returned hash material.]
-- [INSERT IMAGE HERE: Event Viewer Event 4768 details with pre-authentication type 0 visible.]
-- [INSERT IMAGE HERE: Splunk raw event showing the extracted pre-authentication field.]
-- [INSERT IMAGE HERE: Splunk candidate detection results. Mark this evidence as pending until reproduced.]
-- [INSERT IMAGE HERE: PowerShell output confirming `DoesNotRequirePreAuth=False` after cleanup.]
+### Splunk candidate detection results
+
+ ![Splunk  detection results](../../screenshots/UC4.PNG)
