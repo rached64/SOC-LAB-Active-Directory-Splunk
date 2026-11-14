@@ -1,0 +1,12 @@
+# Example Splunk Enterprise indexes.conf stanzas.
+# Configure these on the Splunk indexer/search head as appropriate for your deployment.
+
+[windows_server]
+homePath = $SPLUNK_DB/windows_server/db
+coldPath = $SPLUNK_DB/windows_server/colddb
+thawedPath = $SPLUNK_DB/windows_server/thaweddb
+
+[winlog_vm]
+homePath = $SPLUNK_DB/winlog_vm/db
+coldPath = $SPLUNK_DB/winlog_vm/colddb
+thawedPath = $SPLUNK_DB/winlog_vm/thaweddb

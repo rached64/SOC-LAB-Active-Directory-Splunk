@@ -1,0 +1,8 @@
+# Example Universal Forwarder outputs.conf
+# Replace the placeholder with your Splunk Enterprise receiver address.
+
+[tcpout]
+defaultGroup = splunk_receivers
+
+[tcpout:splunk_receivers]
+server = <SPLUNK_SERVER_IP>:9997
