@@ -13,6 +13,8 @@
 
 [INSERT IMAGE HERE: Full architecture diagram. Show Kali Linux on the left, Windows Server 2022 / Active Directory in the middle, Splunk Enterprise on the right, and the event-forwarding path over TCP 9997. Under Splunk, show indexes `windows_server` and `winlog_vm`, Windows Add-on, and MLTK.]
 
+ ![architecture`](../../screenshots/architecture.PNG)
+ 
 ## Event flow
 
 1. A test operator runs a controlled simulation from Kali Linux or Windows PowerShell.
