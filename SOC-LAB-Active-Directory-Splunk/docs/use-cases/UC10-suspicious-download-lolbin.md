@@ -119,7 +119,7 @@ Expected:
  ### Dashboard Screenshot :
  ![Splunk detection results](../../screenshots/UC10.1.PNG)
 
- ### Dashboard : Top domaines PowerShell
+ ### Dashboard : Latest Detections
  ![Splunk detection results](../../screenshots/UC10.2.PNG)
 
  
