@@ -6,7 +6,7 @@ A practical SOC detection lab demonstrating 10 Active Directory and endpoint det
 
 ## Lab architecture
 
- ![Architecture](/screenshots/architecture.png)
+ ![Architecture](/screenshots/Architecture final.png)
 
 
 ## Detection catalogue
